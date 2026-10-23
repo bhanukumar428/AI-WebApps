@@ -1,0 +1,9 @@
+node_modules/
+.env
+.DS_Store
+
+# Runtime data and secrets
+data/
+.env
+.env.*
+!.env.example

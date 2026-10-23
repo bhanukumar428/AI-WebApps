@@ -1,0 +1,20 @@
+{
+  "name": "jai-veera-hanuman-cashew-website",
+  "version": "2.1.0",
+  "private": true,
+  "description": "Responsive premium website for Jai Veera Hanuman Cashew Processor Trading & Co.",
+  "main": "src/app.js",
+  "engines": {
+    "node": ">=20 <23"
+  },
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "node src/app.js",
+    "test": "node --check src/app.js && node --check public/js/app.js && node --check public/js/admin.js && node --check public/js/admin-login.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "helmet": "^8.0.0",
+    "exceljs": "^4.4.0"
+  }
+}
