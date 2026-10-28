@@ -4,15 +4,30 @@ trigger:
 pool:
   name: 'web app pool'
   demands:
-  - Agent.Name -equals Bhanu428Agent
+    - Agent.Name -equals Bhanu428Agent
 
 steps:
-- task: NodeTool@0
+
+# Install Node.js
+- task: UseNode@1
   inputs:
-    versionSpec: '20.x'
+    version: '20.x'
   displayName: 'Install Node.js'
 
+# Install dependencies
 - script: |
     npm install
-    npm run build
-  displayName: 'npm install and build'
+  displayName: 'Install Dependencies'
+
+# Run validation tests
+- script: |
+    npm test
+  displayName: 'Run Tests'
+
+# Publish source code as artifact
+- task: PublishPipelineArtifact@1
+  inputs:
+    targetPath: '$(Build.SourcesDirectory)'
+    artifact: 'website'
+    publishLocation: 'pipeline'
+  displayName: 'Publish Artifact'
